@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Raj Savla - Product & User Growth</title>
+<title>Raj Savla - Growth Leader</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>
 tailwind.config={
@@ -196,11 +196,11 @@ body {
 <!-- Sticky Navigation Bar -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-<a class="text-2xl font-['Playfair_Display'] text-gray-800" href="#">Raj Savla</a>
+<button class="md:hidden text-gray-800 focus:outline-none float-right" id="menu-toggle">☰</button><div class="hidden flex-col space-y-2 mt-2 md:flex md:flex-row md:space-y-0 md:space-x-4" id="mobile-menu"><a class="text-2xl font-['Playfair_Display'] text-gray-800" href="#">Raj Savla</a><a class="text-gray-600 hover:text-primary transition-colors" href="#timeline">My Journey</a><a class="text-gray-600 hover:text-primary transition-colors" download="RajSavla_Resume.pdf" href="/mnt/data/RajSavla_Resume.pdf">Download Resume</a><a class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors" href="#contact">Contact</a></div>
 <div class="flex items-center space-x-8">
-<a class="text-gray-600 hover:text-primary transition-colors" href="#timeline">My Journey</a>
-<a class="text-gray-600 hover:text-primary transition-colors" download="RajSavla_Resume.pdf" href="/mnt/data/RajSavla_Resume.pdf">Download Resume</a>
-<a class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors" href="#contact">Contact</a>
+
+
+
 </div>
 </div>
 </nav>
@@ -236,66 +236,10 @@ body {
 <!-- Timeline Items Container -->
 <div class="space-y-24">
 <!-- Jupiter -->
-<div class="timeline-item relative">
-<div class="timeline-content flex items-center">
-<div class="w-1/2 pr-12 text-right">
-<span class="text-sm text-gray-500">Sep 2022 – Present</span>
-<h3 class="text-xl font-semibold text-gray-800 mt-1">Growth Manager</h3>
-<p class="text-primary font-medium">🪐 Jupiter</p>
-</div>
-<div class="timeline-point absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
-<div class="w-1/2 pl-12">
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-<p class="text-gray-700 mb-4">Leading user growth initiatives and driving key metrics across the platform.</p>
-<button class="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1 view-details" data-id="jupiter">
-View Details <i class="ri-arrow-right-line"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
 <!-- Axis Bank -->
-<div class="timeline-item relative">
-<div class="timeline-content flex items-center">
-<div class="w-1/2 pr-12 text-right">
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-<p class="text-gray-700 mb-4">Revolutionized digital payments experience and reduced technical declines.</p>
-<button class="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1 view-details" data-id="axis">
-View Details <i class="ri-arrow-right-line"></i>
-</button>
-</div>
-</div>
-<div class="timeline-point absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
-<div class="w-1/2 pl-12">
-<span class="text-sm text-gray-500">Aug 2021 – Aug 2022</span>
-<h3 class="text-xl font-semibold text-gray-800 mt-1">Product Manager – Digital Payments</h3>
-<p class="text-primary font-medium">🏦 Axis Bank</p>
-</div>
-</div>
-</div>
 <!-- PhonePe -->
-
 <!-- Paytm -->
-
 <!-- IIT Bombay -->
-<div class="timeline-item relative">
-<div class="timeline-content flex items-center">
-<div class="w-1/2 pr-12 text-right">
-<span class="text-sm text-gray-500">Jul 2018 – Dec 2018</span>
-<h3 class="text-xl font-semibold text-gray-800 mt-1">Research Assistant</h3>
-<p class="text-primary font-medium">🎓 IIT Bombay</p>
-</div>
-<div class="timeline-point absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
-<div class="w-1/2 pl-12">
-<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-<p class="text-gray-700 mb-4">Conducted research on fintech adoption patterns and published academic papers.</p>
-<button class="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1 view-details" data-id="iitb">
-View Details <i class="ri-arrow-right-line"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <!-- Modal for Details -->
@@ -561,5 +505,10 @@ dots[index].style.borderColor = '#3b82f6';
 });
 });
 </script>
-</body>
+<script>
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+    });
+    </script></body>
 </html>
