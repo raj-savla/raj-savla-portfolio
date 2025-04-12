@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Raj Savla - Growth Leader</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={
+  theme:{
+    extend:{
+      colors:{
+        primary:'#6B8E23',
+        secondary:'#E2725B',
+        muted: '#fdf8f3',
+        contrast: '#2e2e2e'
+      },
+      borderRadius:{
+        'none':'0px',
+        'sm':'4px',
+        DEFAULT:'8px',
+        'md':'12px',
+        'lg':'16px',
+        'xl':'20px',
+        '2xl':'24px',
+        '3xl':'32px',
+        'full':'9999px',
+        'button':'8px'
+      }
+    }
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+.timeline-card {
+perspective: 1000px;
+background-color: transparent;
+}
+.timeline-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: left;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
+.timeline-card.flipped .timeline-card-inner {
+transform: rotateY(180deg);
+}
+.timeline-card-front,
+.timeline-card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+background: white;
+border-radius: 8px;
+box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.timeline-card-back {
+transform: rotateY(180deg);
+padding: 1.5rem;
+}
+.flip-button {
+position: absolute;
+right: 1rem;
+top: 1rem;
+background: transparent;
+border: none;
+cursor: pointer;
+color: #3b82f6;
+z-index: 10;
+}
+.timeline-dot {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+background-color: white;
+border: 4px solid #3b82f6;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+z-index: 10;
+transition: all 0.3s ease;
+}
+.timeline-dot::after {
+content: '';
+position: absolute;
+width: 12px;
+height: 12px;
+background-color: #3b82f6;
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0;
+transition: all 0.3s ease;
+}
+.timeline-line {
+width: 2px;
+background-color: #e5e7eb;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+top: 0;
+bottom: 0;
+z-index: 1;
+}
+.timeline-card {
+transition: all 0.3s ease;
+opacity: 0.7;
+transform: translateY(20px);
+}
+.timeline-card.animate {
+opacity: 1;
+transform: translateY(0);
+}
+.timeline-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.timeline-card::before {
+content: '';
+position: absolute;
+width: 30px;
+height: 2px;
+background-color: #e5e7eb;
+top: 40px;
+transition: all 0.3s ease;
+}
+.timeline-card.left::before {
+right: -30px;
+}
+.timeline-card.right::before {
+left: -30px;
+}
+.timeline-card:hover::before {
+background-color: #3b82f6;
+}
+.timeline-card:hover + .timeline-dot::after {
+opacity: 1;
+}
+</style>
+<style>
+#details-modal {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#details-modal.show {
+  opacity: 1;
+}
+</style><style>
+body {
+  background-color: #fdfcf9;
+  color: #1f2937; /* much darker text for better contrast */
+}
+.bg-gray-50 {
+  background-color: #fdfcf9 !important;
+}
+.text-gray-500, .text-gray-600, .text-gray-700, .text-gray-800 {
+  color: #1f2937 !important;
+}
+.bg-gray-800 {
+  background-color: #1f2937 !important;
+}
+.text-primary {
+  color: #6B8E23 !important;
+}
+.bg-primary {
+  background-color: #6B8E23 !important;
+}
+</style><style>
+.text-contrast {
+  color: #1f2937 !important;
+}
+.bg-primary {
+  background-color: #6B8E23 !important;
+}
+</style><style>
+.bg-muted {
+  background-color: #f5f3ef !important;
+}
+</style></head>
+<body class="bg-white text-gray-800">
+<!-- Sticky Navigation Bar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<a class="text-2xl font-['Playfair_Display'] text-gray-800" href="#">Raj Savla</a>
+<div class="flex items-center space-x-8">
+<a class="text-gray-600 hover:text-primary transition-colors" href="#timeline">My Journey</a>
+<a class="text-gray-600 hover:text-primary transition-colors" download="RajSavla_Resume.pdf" href="/mnt/data/RajSavla_Resume.pdf">Download Resume</a>
+<a class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors" href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative">
+<!-- Full-width hero image -->
+<div class="w-full h-[600px] relative overflow-hidden">
+<div class="absolute inset-0" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20minimalist%20office%20workspace%20with%20natural%20lighting%2C%20clean%20aesthetic%2C%20professional%20environment%2C%20high-end%20technology%20setup%2C%20panoramic%20view%2C%20ultra%20wide%20composition%2C%20architectural%20photography&amp;width=1920&amp;height=600&amp;seq=1&amp;orientation=landscape'); background-size: cover; background-position: center;">
+</div>
+</div>
+<!-- Content Section -->
+<div class="bg-gray-50 py-20">
+<div class="container mx-auto px-6">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Welcome to the Journey of Raj Savla</h1>
+<p class="text-xl text-gray-600 mb-6">Growth Leader | Fintech | IIT Bombay | Storyteller | Bangalore, India</p>
+<p class="text-gray-500 mb-10 leading-relaxed">As a Growth Leader with a passion for fintech and storytelling, I thrive on creating impactful user journeys across products. This timeline captures key moments from my career and beyond.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors" href="#timeline">View My Journey</a>
+<a class="bg-gray-800 text-gray-100 border border-gray-700 px-8 py-3 !rounded-button whitespace-nowrap hover:bg-gray-700 transition-colors" download="RajSavla_Resume.pdf" href="/mnt/data/RajSavla_Resume.pdf">Download Resume</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="py-20 bg-gray-50" id="timeline">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center text-gray-800 mb-16">My Professional Journey</h2>
+<!-- Timeline View -->
+<div class="relative" id="timeline-view">
+<div class="timeline-progress absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-200" style="top: 0; bottom: 0;"></div>
+<!-- Timeline Items Container -->
+<div class="space-y-24">
+<!-- Jupiter -->
+<div class="timeline-item relative">
+<div class="timeline-content flex items-center">
+<div class="w-1/2 pr-12 text-right">
+<span class="text-sm text-gray-500">Sep 2022 – Present</span>
+<h3 class="text-xl font-semibold text-gray-800 mt-1">Growth Manager</h3>
+<p class="text-primary font-medium">🪐 Jupiter</p>
+</div>
+<div class="timeline-point absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
+<div class="w-1/2 pl-12">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<p class="text-gray-700 mb-4">Leading user growth initiatives and driving key metrics across the platform.</p>
+<button class="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1 view-details" data-id="jupiter">
+View Details <i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Axis Bank -->
+<div class="timeline-item relative">
+<div class="timeline-content flex items-center">
+<div class="w-1/2 pr-12 text-right">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<p class="text-gray-700 mb-4">Revolutionized digital payments experience and reduced technical declines.</p>
+<button class="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1 view-details" data-id="axis">
+View Details <i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+<div class="timeline-point absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
+<div class="w-1/2 pl-12">
+<span class="text-sm text-gray-500">Aug 2021 – Aug 2022</span>
+<h3 class="text-xl font-semibold text-gray-800 mt-1">Product Manager – Digital Payments</h3>
+<p class="text-primary font-medium">🏦 Axis Bank</p>
+</div>
+</div>
+</div>
+<!-- PhonePe -->
+
+<!-- Paytm -->
+
+<!-- IIT Bombay -->
+<div class="timeline-item relative">
+<div class="timeline-content flex items-center">
+<div class="w-1/2 pr-12 text-right">
+<span class="text-sm text-gray-500">Jul 2018 – Dec 2018</span>
+<h3 class="text-xl font-semibold text-gray-800 mt-1">Research Assistant</h3>
+<p class="text-primary font-medium">🎓 IIT Bombay</p>
+</div>
+<div class="timeline-point absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
+<div class="w-1/2 pl-12">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<p class="text-gray-700 mb-4">Conducted research on fintech adoption patterns and published academic papers.</p>
+<button class="text-primary hover:text-blue-700 text-sm font-medium inline-flex items-center gap-1 view-details" data-id="iitb">
+View Details <i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal for Details -->
+<div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" id="details-modal">
+<div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-2xl font-semibold text-gray-800" id="modal-title"></h3>
+<p class="text-primary font-medium" id="modal-company"></p>
+<p class="text-sm text-gray-500 mt-1" id="modal-duration"></p>
+</div>
+<button class="text-gray-400 hover:text-gray-600" id="close-modal">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div id="modal-content"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<style>
+.timeline-nav-btn.active {
+background-color: #3b82f6;
+color: white;
+}
+.timeline-nav-btn:not(.active) {
+color: #4b5563;
+}
+.timeline-progress {
+z-index: 1;
+}
+.timeline-point {
+z-index: 2;
+}
+.timeline-content {
+z-index: 3;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const timelineView = document.getElementById('timeline-view');
+const cardsView = document.getElementById('cards-view');
+const navBtns = document.querySelectorAll('.timeline-nav-btn');
+const modal = document.getElementById('details-modal');
+const closeModal = document.getElementById('close-modal');
+// View switching
+navBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+navBtns.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+const view = btn.dataset.view;
+if (view === 'timeline') {
+timelineView.style.display = 'block';
+cardsView.style.display = 'none';
+} else {
+timelineView.style.display = 'none';
+cardsView.style.display = 'block';
+}
+});
+});
+// Modal handling
+const experienceDetails = {
+jupiter: {
+title: 'Growth Manager',
+company: 'Jupiter',
+duration: 'Sep 2022 – Present',
+details: [
+'Increased user activation rate by 45% through targeted onboarding optimization',
+'Implemented AI-driven personalization resulting in 30% higher engagement',
+'Launched referral program generating 25K+ new users with 40% retention',
+'Optimized marketing spend achieving 35% reduction in CAC',
+'Leading ₹5M+/month savings across product, marketing & analytics'
+]
+},
+axis: {
+title: 'Product Manager – Digital Payments',
+company: 'Axis Bank',
+duration: 'Aug 2021 – Aug 2022',
+details: [
+'Boosted UPI CX by 9 pts; reduced tech declines by implementing robust error handling',
+'Revamped fund settlement process resulting in ₹5M+/month cost savings',
+'Successfully led IPO integrations for major players like Paytm and LIC',
+'Implemented real-time transaction monitoring reducing failed transactions by 40%'
+]
+},
+iitb: {
+title: 'Research Assistant',
+company: 'IIT Bombay',
+duration: 'Jul 2018 – Dec 2018',
+details: [
+'Conducted research on fintech adoption patterns in rural India',
+'Published paper in International Journal of Financial Innovation',
+'Developed statistical models for predicting digital payment adoption',
+'Collaborated with NGOs for financial literacy programs'
+]
+}
+};
+document.querySelectorAll('.view-details').forEach(btn => {
+btn.addEventListener('click', () => {
+const id = btn.dataset.id;
+const experience = experienceDetails[id];
+document.getElementById('modal-title').textContent = experience.title;
+document.getElementById('modal-company').textContent = experience.company;
+document.getElementById('modal-duration').textContent = experience.duration;
+const content = document.getElementById('modal-content');
+content.innerHTML = `
+<ul class="space-y-4">
+${experience.details.map(detail => `
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</span>
+<span class="text-gray-700">${detail}</span>
+</li>
+`).join('')}
+</ul>
+`;
+modal.classList.add('show'); modal.style.display = 'flex';
+});
+});
+closeModal.addEventListener('click', () => {
+modal.style.display = 'none';
+});
+modal.addEventListener('click', (e) => {
+if (e.target === modal) {
+modal.style.display = 'none';
+}
+});
+// Animation on scroll
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animate');
+}
+});
+}, { threshold: 0.2 });
+document.querySelectorAll('.timeline-item').forEach(item => {
+observer.observe(item);
+});
+});</script>
+<!-- Contact Section -->
+<section class="py-20 bg-gray-50" id="contact">
+<div class="container mx-auto px-6">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl font-bold text-center text-contrast mb-12">Get in Touch</h2>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="inline-flex items-center px-4 py-2 rounded-full hover:bg-gray-700 transition-colors bg-muted text-contrast rounded-full px-4 py-2 inline-flex items-center gap-2" href="mailto:rajsavla.iitb@gmail.com">
+<i class="ri-mail-line text-primary mr-2"></i>
+<span class="text-contrast">rajsavla.iitb@gmail.com</span>
+</a>
+<a class="inline-flex items-center px-4 py-2 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors" href="https://linkedin.com/in/rajsavla" target="_blank">
+<i class="ri-linkedin-line text-primary mr-2"></i>
+<span class="text-contrast">linkedin.com/in/rajsavla</span>
+</a>
+</div>
+<div class="mt-12 text-center">
+<div class="flex justify-center space-x-6">
+<a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-contrast rounded-full transition-colors" href="https://linkedin.com/in/rajsavla" target="_blank">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-contrast rounded-full transition-colors" href="https://instagram.com/raj_savla_">
+<i class="ri-instagram-fill"></i>
+</a>
+<a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-contrast rounded-full transition-colors" href="https://twitter.com/imRajSavla">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-contrast rounded-full transition-colors" href="#">
+<i class="ri-github-fill"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-8 bg-white border-t border-gray-200">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-600 mb-4 md:mb-0">© 2025 Raj Savla. All rights reserved.</p>
+<div class="flex space-x-6">
+<a class="text-gray-600 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-gray-600 hover:text-primary transition-colors" href="#">Resume</a>
+<a class="text-gray-600 hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Flip card functionality
+const flipButtons = document.querySelectorAll('.flip-button');
+flipButtons.forEach(button => {
+button.addEventListener('click', (e) => {
+e.stopPropagation();
+const card = button.closest('.timeline-card');
+card.classList.toggle('flipped');
+});
+});
+// Close flip cards when clicking outside
+document.addEventListener('click', (e) => {
+const flippedCards = document.querySelectorAll('.timeline-card.flipped');
+flippedCards.forEach(card => {
+if (!card.contains(e.target)) {
+card.classList.remove('flipped');
+}
+});
+});
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+// Timeline animation
+const timelineCards = document.querySelectorAll('.timeline-card');
+const timeline = document.querySelector('.timeline-line');
+if (timeline) {
+const timelineSection = document.getElementById('timeline');
+const lastCard = timelineCards[timelineCards.length - 1];
+const timelineHeight = lastCard.offsetTop + lastCard.offsetHeight - timelineCards[0].offsetTop + 40;
+timeline.style.height = `${timelineHeight}px`;
+// Intersection Observer for timeline cards
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animate');
+}
+});
+}, {
+threshold: 0.2
+});
+timelineCards.forEach(card => {
+observer.observe(card);
+});
+}
+// Add hover effects for timeline dots
+timelineCards.forEach((card, index) => {
+card.addEventListener('mouseenter', () => {
+const dots = document.querySelectorAll('.timeline-dot');
+if (dots[index]) {
+dots[index].style.transform = 'translateX(-50%) scale(1.2)';
+dots[index].style.borderColor = '#2563eb';
+}
+});
+card.addEventListener('mouseleave', () => {
+const dots = document.querySelectorAll('.timeline-dot');
+if (dots[index]) {
+dots[index].style.transform = 'translateX(-50%) scale(1)';
+dots[index].style.borderColor = '#3b82f6';
+}
+});
+});
+});
+</script>
+</body>
+</html>
