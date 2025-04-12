@@ -30,11 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('timeline-container');
   experience.forEach(exp => {
     const item = document.createElement('div');
-    item.className = 'timeline-item';
+    item.className = "bg-white rounded-lg shadow p-6";
     item.innerHTML = `
-      <h3>${exp.title}</h3>
-      <p><strong>${exp.company}</strong> – <em>${exp.duration}</em></p>
-      <ul>${exp.details.map(d => `<li>${d}</li>`).join('')}</ul>
+      <h3 class="text-xl font-semibold text-gray-800 mb-1">${exp.title}</h3>
+      <p class="text-sm text-gray-500 mb-2"><strong>${exp.company}</strong> – <em>${exp.duration}</em></p>
+      <ul class="list-disc list-inside space-y-1 text-gray-700">
+        ${exp.details.map(detail => `<li>${detail}</li>`).join('')}
+      </ul>
     `;
     container.appendChild(item);
   });
