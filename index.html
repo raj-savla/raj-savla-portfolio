@@ -196,11 +196,11 @@ body {
 <!-- Sticky Navigation Bar -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-<button class="md:hidden text-gray-800 focus:outline-none float-right" id="menu-toggle">☰</button><div class="hidden flex-col space-y-2 mt-2 md:flex md:flex-row md:space-y-0 md:space-x-4" id="mobile-menu"><a class="text-2xl font-['Playfair_Display'] text-gray-800" href="#">Raj Savla</a><a class="text-gray-600 hover:text-primary transition-colors" href="#timeline">My Journey</a><a class="text-gray-600 hover:text-primary transition-colors" download="RajSavla_Resume.pdf" href="/mnt/data/RajSavla_Resume.pdf">Download Resume</a><a class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors" href="#contact">Contact</a></div>
+<a class="text-2xl font-['Playfair_Display'] text-gray-800" href="#">Raj Savla</a>
 <div class="flex items-center space-x-8">
-
-
-
+<a class="text-gray-600 hover:text-primary transition-colors" href="#timeline">My Journey</a>
+<a class="text-gray-600 hover:text-primary transition-colors" download="RajSavla_Resume.pdf" href="/mnt/data/RajSavla_Resume.pdf">Download Resume</a>
+<a class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors" href="#contact">Contact</a>
 </div>
 </div>
 </nav>
@@ -236,10 +236,15 @@ body {
 <!-- Timeline Items Container -->
 <div class="space-y-24">
 <!-- Jupiter -->
+
 <!-- Axis Bank -->
+
 <!-- PhonePe -->
+
 <!-- Paytm -->
+
 <!-- IIT Bombay -->
+
 </div>
 </div>
 <!-- Modal for Details -->
@@ -327,6 +332,28 @@ details: [
 'Implemented real-time transaction monitoring reducing failed transactions by 40%'
 ]
 },
+phonepe: {
+title: 'Senior Product Analyst',
+company: 'PhonePe',
+duration: 'Jun 2020 – Jul 2021',
+details: [
+'Led data analytics for merchant payments, improving conversion rates by 25%',
+'Developed predictive models for fraud detection with 92% accuracy',
+'Optimized payment gateway routing resulting in 15% cost reduction',
+'Created automated reporting system saving 20+ hours weekly for the team'
+]
+},
+paytm: {
+title: 'Product Analyst',
+company: 'Paytm',
+duration: 'Jan 2019 – May 2020',
+details: [
+'Spearheaded user retention initiatives increasing monthly active users by 30%',
+'Implemented A/B testing framework for feature optimization',
+'Reduced customer support tickets by 40% through UX improvements',
+'Developed KPI dashboards for executive decision making'
+]
+},
 iitb: {
 title: 'Research Assistant',
 company: 'IIT Bombay',
@@ -381,7 +408,8 @@ entry.target.classList.add('animate');
 document.querySelectorAll('.timeline-item').forEach(item => {
 observer.observe(item);
 });
-});</script>
+});
+</script>
 <!-- Contact Section -->
 <section class="py-20 bg-gray-50" id="contact">
 <div class="container mx-auto px-6">
@@ -505,10 +533,5 @@ dots[index].style.borderColor = '#3b82f6';
 });
 });
 </script>
-<script>
-    document.getElementById("menu-toggle").addEventListener("click", function() {
-        const menu = document.getElementById("mobile-menu");
-        menu.classList.toggle("hidden");
-    });
-    </script></body>
+</body>
 </html>
